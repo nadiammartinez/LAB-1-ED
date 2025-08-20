@@ -1,6 +1,12 @@
+using Microsoft.AspNetCore.Http; 
+using Microsoft.AspNetCore.Mvc;
+
 namespace WebApplication1.Controllers;
 
-public class CalculatorController
 {
-    
+    [Route("api/[controller]")]
+    [ApiController]
+    public class CalculatorController : ControllerBase
+    {
+    }
 }

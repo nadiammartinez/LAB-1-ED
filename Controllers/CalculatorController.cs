@@ -16,7 +16,7 @@ namespace WebApplication1.Controllers
         }
         
         [HttpGet("rest")]
-        public IActionResult GetSum([FromQuery] int c, [FromQuery] int d)
+        public IActionResult GetRest([FromQuery] int c, [FromQuery] int d)
         {
             var result2 = c - d;
             return Ok(new { c, d, result2});

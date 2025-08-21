@@ -1,3 +1,4 @@
+using System.Collections.Specialized;
 using Microsoft.AspNetCore.Http; 
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,28 +13,32 @@ namespace WebApplication1.Controllers
         public IActionResult GetSum([FromQuery] int a, [FromQuery] int b)
         {
             var result = a + b;
-            return Ok(new { a, b, result});
+            return Ok(new { a, b, result });
         }
-        
+
         [HttpGet("rest")]
         public IActionResult GetRest([FromQuery] int c, [FromQuery] int d)
         {
             var result2 = c - d;
-            return Ok(new { c, d, result2});
+            return Ok(new { c, d, result2 });
         }
-        
+
         [HttpGet("mult")]
         public IActionResult GetMult([FromQuery] int e, [FromQuery] int f)
         {
             var result3 = e * f;
-            return Ok(new { e, f, result3});
+            return Ok(new { e, f, result3 });
         }
+
         
         [HttpGet("div")]
-        public IActionResult GetDiv([FromQuery] int g, [FromQuery] int h)
+        public IActionResult GetDiv([FromQuery] int a, [FromQuery] int b)
         {
-            var result4 = g/h;
-            return Ok(new { g, h, result4});
+            if (b == 0) return BadRequest(new { message = "La división no es disponible ya que incluye un cero " });
+            double result = (double)a / b;
+            return Ok(new { a, b, result });
         }
+
+
     }
 }

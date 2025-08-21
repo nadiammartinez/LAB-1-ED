@@ -21,5 +21,19 @@ namespace WebApplication1.Controllers
             var result2 = c - d;
             return Ok(new { c, d, result2});
         }
+        
+        [HttpGet("mult")]
+        public IActionResult GetMult([FromQuery] int e, [FromQuery] int f)
+        {
+            var result3 = e * f;
+            return Ok(new { e, f, result3});
+        }
+        
+        [HttpGet("div")]
+        public IActionResult GetDiv([FromQuery] int g, [FromQuery] int h)
+        {
+            var result4 = g/h;
+            return Ok(new { g, h, result4});
+        }
     }
 }
